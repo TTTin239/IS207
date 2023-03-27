@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GK1</title>
+        <link rel="stylesheet" href="./GK1.css">
+    </head>
+    <body>
+        <form method="post" action="#" class="container" align="center">
+            <h1>Phân công giao hàng</h1>
+            <h3>Tên công việc</h3>
+            <input type="text" id="TCV" class="work TCV" placeholder="abc">
+            <h3>Người phụ trách</h3>
+            <input type="text" id="NPT" class="work NPT" placeholder="xyz bn">
+            <h3>Nơi nhận hàng</h3>
+            <input id="NNH" name="browser" placeholder="Vui lòng chọn tỉnh/thành phố giao hàng" class="work">
+            <h3>Nơi giao hàng</h3>
+            <input id="NGH" name="browser" placeholder="Vui lòng chọn tỉnh/thành phố giao hàng" class="work">
+            <h3>Ngày bắt đầu</h3>
+            <input type="date" id="StartDate" class="work" placeholder="dd/mm/yyyy">
+            <h3>Ngày kết thúc</h3>
+            <input type="date" id="EndDate" class="work" placeholder="dd/mm/yyyy">
+            <h3>Chi tiết</h3>
+            <input type="text" id="Info" class="work" placeholder="Chi tiết công việc hoặc hàng hóa">
+            <br><br>
+            <input type="button" id="Add" value="Thêm" onclick="myAdd()">
+            <input type="reset" id="Reset" value="Reset">
+        </form>
+        <p id="show"></p>
+        <script>
+            function myAdd(){
+                var TcV1 = document.getElementById("TCV").value;
+                var TenNPC = document.getElementById("NPT").value;
+                var address = document.getElementById("NNH").value;
+                var NgH = document.getElementById("NGH").value;
+                var Star = document.getElementById("StartDate").value;
+                var EndDate = document.getElementById("EndDate").value;
+                var Ct = document.getElementById("Info").value;
+                var tagTable = document.createElement("table");
+                var a = document.createElement("a");
+                a.id = "createdA";
+                tagTable.id = "createdTable";
+
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+                th.className = "createdTH";
+                a.setAttribute("href", "#");
+                a.onclick = function(){
+                    /*with (document){
+                        write("<h1>" + TcV1 + "</h1><br>");
+                        write("Người phụ trách: <b>" + TenNPC + "</b>");
+                        write("<br>Nơi nhận hàng: <b>" + address + "</b>" + "&emsp;&emsp; Nơi giao hàng: <b>" + NgH + "</b>");
+                        write("<br>Ngày bắt đầu: <b>" + Star +"</b>" + "&emsp;&emsp; Ngày kết thúc: <b>" + EndDate + "</b>");
+                        write("<br>Chi tiết:<br>");
+                        write("&emsp;&emsp; <b>" + Ct + "</b>");
+                    }*/
+                    var myWindow = window.open("","MsWindow", "width=1000, height=400" );
+                    with(myWindow.document){
+                        write("<br><h1>" + TcV1 + "</h1><br>");
+                        write("Người phụ trách: <b>" + TenNPC + "</b>");
+                        write("<br>Nơi nhận hàng: <b>" + address + "</b>" + "&emsp;&emsp; Nơi giao hàng: <b>" + NgH + "</b>");
+                        write("<br>Ngày bắt đầu: <b>" + Star +"</b>" + "&emsp;&emsp; Ngày kết thúc: <b>" + EndDate + "</b>");
+                        write("<br>Chi tiết:<br>");
+                        write("&emsp;&emsp; <b>" + Ct + "</b>");
+                    }
+                }
+                a.textContent = TcV1;
+                th.appendChild(a);
+                tr.appendChild(th);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = TenNPC;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = "Nơi nhận: " + address;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = "Ngày bắt đầu: " + Star;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+                show.appendChild(tagTable);
+            }
+        </script>
+    </body>
+</html>

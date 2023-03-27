@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Tính lương tháng</title>
+        <link rel="stylesheet" href="./Bai1.css" type="text/css">
+    </head>
+    <body>
+        <form method="post" action="" border="1" align="center">
+            <table class="tableLuong" border="1" style="background-color: #F4A460;" align="center">
+                <tr>
+                    <td><p>Lương</p></td>
+                    <td width="300px"><input type="text" id="Soluong"></td>
+                </tr>
+                <tr>
+                    <td><p>Hệ số lương</p></td>
+                    <td><input type="number" class="nhap" step="0.1" min="1" id="HeSo"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="25px" align="center"><input type="button"onclick="myFunction()" style="border-radius: 10px;" value="Tính lương tháng"></td>
+                </tr>
+                <tr>
+                    <td><p>Lương tháng</p></td>
+                    <td><p id="hienthi"></p></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            function myFunction(){
+                var luong = document.getElementById("Soluong").value;
+                var Hs = document.getElementById("HeSo").value;
+                document.getElementById("hienthi").innerHTML = luong * Hs;
+            }
+        </script>
+    </body>
+</html>

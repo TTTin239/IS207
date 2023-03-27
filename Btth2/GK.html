@@ -1,0 +1,120 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>GK</title>
+        <link rel="stylesheet" href="./GK.css">
+    </head>
+    <body>
+        <form method="post" action="" class="content">
+            <h1>Thêm sách</h1>
+            <h3>Tên sách</h3>
+            <input type="text" name="tenSach" placeholder="abcdc" class="Book" id="tenSach">
+            <h3>Tác giả</h3>
+            <input type="text" name="tacGia" placeholder="xyzta" class="Book" id="tacGia" >
+            <h3>Giá</h3>
+            <input type="tex" name="Gia" placeholder="30000" class="Book" id="price"> 
+            <h3>Năm xuất bản</h3>
+            <input type="text" name="NXB" placeholder="2020" class="Book" id="year">
+            <h3>Nhà xuất bản</h3>
+            <input type="text" name="NhaXB" placeholder="NXB ABC" class="Book" id="NXB">
+            <h3>Giới thiệu sách</h3>
+            <input type="text" name="GTS" placeholder="Nội dung giới thiệu" class="Book" id="GTS">
+            <h3>Hình ảnh</h3>
+            <input type="url" name="HinhAnh" placeholder="Link hình ảnh" class="Book" id="Image"><br><br>
+            <input type="button" value="Thêm" id="Add" onclick="myAdd()">
+            <input type="reset" name="reset" value="reset" id="Reset" onclick="myReset()">
+        </form>
+        <p id="show"></p>
+        <script>
+            function myAdd(){
+                var Ig = document.getElementById("Image").value;
+                var TenSach = document.getElementById("tenSach").value;
+                var TenTG = document.getElementById("tacGia").value;
+                var year = document.getElementById("year").value;
+                var price = document.getElementById("price").value;
+                var NxB = document.getElementById("NXB").value;
+                var GtS = document.getElementById("GTS").value;
+
+                var tagTable = document.createElement("table");
+                var a = document.createElement("a");
+                var Image = document.createElement("img");
+                tagTable.id = "createdTable";
+
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+                th.className = "createdTH";
+                Image.setAttribute("src", Ig);
+                th.appendChild(Image);
+                tr.appendChild(th);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = TenSach;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = "Tác giả: " + TenTG;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = "Năm sản xuất: " + year;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = "Giá: " + price;
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                a.setAttribute("href", "#");
+                a.onclick = function() {
+                    /*with (document){
+                        write("<img src=" + Ig + ">");
+                        write("<h1>" + TenSach + "</h1>");
+                        write("Tác giả: <b>" + TenTG + "</b>");
+                        write("<br>Nhà xuất bản:  <b>" + NxB + "</b>");
+                        write("<br>Năm xuất bản:  <b>" + year + "</b>");
+                        write("<br>Giá:  <b>" + price + "</b>");
+                        write("<br>Giới thiệu sách:<br>");
+                        write("&emsp;&emsp;<b>" + GtS + "</b>");
+                    }*/
+                    var myWindow = window.open("","MsWindow","width=1000, height=400");
+                    with(myWindow.document){
+                        write("<br><img src=" + Ig + ">");
+                        write("<h1>" + TenSach + "</h1>");
+                        write("Tác giả: <b>" + TenTG + "</b>");
+                        write("<br>Nhà xuất bản:  <b>" + NxB + "</b>");
+                        write("<br>Năm xuất bản:  <b>" + year + "</b>");
+                        write("<br>Giá:  <b>" + price + "</b>");
+                        write("<br>Giới thiệu sách:<br>");
+                        write("&emsp;&emsp;<b>" + GtS + "</b>");
+                    }
+                }
+                a.textContent = "Chi tiết";
+                td.appendChild(a);
+                tr.appendChild(td);
+                tagTable.appendChild(tr);
+                show.appendChild(tagTable);
+            }
+
+            function myReset(){
+                document.getElementById("content").reset();
+            }
+        </script>
+        
+    </body>
+</html>

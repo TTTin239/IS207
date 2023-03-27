@@ -1,0 +1,33 @@
+#header {}
+
+.nav- {
+    position: fixed;
+    background-color: #006400;
+    height: 55px;
+    z-index: 1;
+    margin-top: 15px;
+}
+
+#nav {
+    display: inline-block;
+}
+
+#nav>li {
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav>li>a {
+    text-transform: uppercase;
+}
+
+#nav li a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 0px;
+    padding: 0 24px;
+    display: block;
+}

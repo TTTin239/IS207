@@ -1,0 +1,136 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hóa đơn</title>
+        <link rel="stylesheet" href="./Bai2.css" type="text/css">
+        <script>
+            function tinhTien(){
+                var tongTien = 0;
+                // Tạo bảng
+                var tagTable = document.createElement("table");
+                tagTable.id = "createdTable";
+                //Tạo tr
+                var tr = document.createElement("tr");
+                
+                var th = document.createElement("th");
+                th.className = "createdTH"; //Tạo class name
+                th.textContent = "Các món đã dùng"; //Tạo text content
+                tr.appendChild(th);
+                //Tạo th mới
+                var th = document.createElement("th");
+                th.className = "createdTH"; //Tạo class name
+                th.textContent = "Tiền"; //Tạo text content
+                tr.appendChild(th);
+                //gắn  vào tr
+
+                tagTable.appendChild(tr);
+
+                for (var i = 0; i < food.length; i++){
+                    if(food[i].selected) {
+                        tongTien += parseInt(food[i].value);
+                        var tr = document.createElement("tr");
+                        var td = document.createElement("td");
+                        //Tạo td với class, name
+                        td.className = "createdTD";
+                        td.textContent = food[i].text;
+                        tr.appendChild(td);
+
+                        var td = document.createElement("td");
+                        // Tạo td với class, name
+                        td.className = "createdTD";
+                        td.textContent = food[i].value;
+                        tr.appendChild(td);
+
+                        tagTable.appendChild(tr);
+                    }
+                }
+
+                for (var i = 0; i < drink.length; i++){
+                    if (drink[i].selected) {
+                        tongTien += parseInt(drink[i].value);
+                        var tr = document.createElement("tr");
+                        var td = document.createElement("td");
+                        //Tạo td với class, name
+                        td.className = "createdTD";
+                        td.textContent = drink[i].text;
+                        tr.appendChild(td);
+
+                        var td = document.createElement("td");
+                        //Tạo td với class, name
+                        td.className = "createdTD";
+                        td.textContent = drink[i].value;
+                        tr.appendChild(td);
+
+                        tagTable.appendChild(tr);
+                    }
+                }
+
+                if (dem.checked) {
+                    tongTien *= 1.1;
+                }
+                
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                //Tạo td với class, name
+                td.className = "createdTD";
+                td.textContent = "Tổng tiền";
+                tr.appendChild(td);
+                //Tạo td với class, name
+                var td = document.createElement("td");
+                td.className = "createdTD";
+                td.textContent = tongTien + " đồng";
+                tr.appendChild(td);
+
+                tagTable.appendChild(tr);
+                show.appendChild(tagTable); 
+            }
+        </script>
+    </head>
+    <body>
+        <table cellspacing="0" cellpadding="2" border="1px solid black" align="center" id="mainTable" style="background-color: #ADFF2F;">
+            <form mane="frm">
+                <tr>
+                    <td align="center" colspan="3"><h1>THỰC ĐƠN</h1></td>
+                </tr>
+                <tr style="color: blue;" height="30px">
+                    <th align="center"><p>Thức ăn</p></th>
+                    <th align="center"><p>Nước uống</p></th>
+                    <th width="200px" align="center"><p>Thời điểm</p></th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="food" class="ds" size="7" multiple>
+                            <option value="20000">Bún bò</option>
+                            <option value="18000">Hủ tiếu</option>
+                            <option value="17000">Bánh canh</option>
+                            <option value="19000">Phở bò</option>
+                            <option value="15000">Nuôi</option>
+                            <option value="12000">Bánh mì thịt</option>
+                            <option value="15000">Bánh cuốn</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="drink" class="ds" multiple size="7">
+                            <option value="12000">Cà phê đá</option>
+                            <option value="15000">Cà phê sữa</option>
+                            <option value="13000">Chanh dây</option>
+                            <option value="12000">Chanh muối</option>
+                            <option value="14000">Xí muội</option>
+                            <option value="13000">Sữa tươi</option>
+                            <option value="17000">Cam vắt</option>
+                        </select>
+                    </td>
+                    <td>
+                        Ban ngày: <input type="radio" id="ngay" name="rd" checked onclick=""><br>
+                        Ban đêm: <input type="radio" name="rd" id="dem" onclick="">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="3"><input type="button" onclick="tinhTien()" id="click" name="taoTable" value="Tính tiền" style="border-radius: 15px;"></td>
+                </tr>
+            </form>
+        </table>
+        <p id="show" align="center"></p>
+    </body>
+</html>

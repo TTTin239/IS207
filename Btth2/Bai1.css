@@ -1,0 +1,11 @@
+.tableLuong {
+    border: 1px solid blue;
+    width: 400px;
+    float: center;
+}
+
+.Nhap {
+    margin: 7px;
+    width: 49px;
+    border-radius: 10px;
+}

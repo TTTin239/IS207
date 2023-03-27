@@ -1,0 +1,48 @@
+#GTS {
+    height: 100px;
+}
+
+.book {
+    border-radius: 9px;
+    width: 300px;
+    height: 30;
+}
+
+#GTS {
+    padding-bottom: 75px;
+    padding-top: 5px
+}
+
+.content {
+    padding-left: 468pt;
+    text-align: left;
+}
+
+#Add {
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #1874CD;
+}
+
+#Reset {
+    background-color: #9ACD32;
+    width: 50px;
+    height: 30px;
+    margin-left: 50px;
+    color: #FFF;
+}
+
+#show {
+    margin-left: 150px;
+}
+
+#createdTable {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-right: 40px;
+    margin-left: 67px;
+    padding-bottom: 20px;
+}
